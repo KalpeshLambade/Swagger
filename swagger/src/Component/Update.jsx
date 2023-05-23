@@ -30,6 +30,24 @@ const Update = () => {
   };
   console.log(userInput);
 
+  const handelDelectData = () => {
+    fetch(`http://65.0.93.119:4000/delete/${paramData.id}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error deleting data");
+        }
+        return response.json();
+      })
+      .then(() => {
+        alert("Data is deleted");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
   const formData = (e) => {
     let name = e.target.name;
     let value = e.target.value;
@@ -39,17 +57,6 @@ const Update = () => {
 
   return (
     <>
-      {/* <form onSubmit={() => handleAddData()}>
-        <input
-          type="text"
-          name="firstname"
-          onChange={(e) => formData(e)}
-          value={userInput.firstname}
-          placeholder="FirstName"
-        />
-        <input type="submit" value="Submit" />
-      </form> */}
-
       <div id="register">
         <form onSubmit={() => handleAddData()}>
           <h2>UPDATE ACCOUNT INFO </h2>
@@ -97,6 +104,9 @@ const Update = () => {
           />
 
           <input type="submit" />
+          <button className="delectdata" onClick={() => handelDelectData()}>
+            Delect
+          </button>
         </form>
       </div>
     </>

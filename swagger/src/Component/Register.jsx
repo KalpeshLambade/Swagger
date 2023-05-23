@@ -11,7 +11,7 @@ const Register = () => {
   });
 
   const handleAddData = () => {
-    if (data.phoneNumber !== 10) {
+    if (data.phoneNumber.length !== 10) {
       alert("Enter 10 digit Phone number");
     } else {
       fetch("http://65.0.93.119:4000/adduser", {

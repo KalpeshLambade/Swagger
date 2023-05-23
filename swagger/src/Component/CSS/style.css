@@ -127,3 +127,14 @@
     border-radius: 10px;
     cursor: pointer;
 }
+.delectdata{
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 5%;
+    width:30%;
+    background-color: #ff4f5a;
+    color: white;
+
+}
