@@ -52,7 +52,7 @@ const Update = () => {
 
       <div id="register">
         <form onSubmit={() => handleAddData()}>
-          <h2>REISTER NEW ACCOUNT </h2>
+          <h2>UPDATE ACCOUNT INFO </h2>
           <input
             type="text"
             name="firstname"
