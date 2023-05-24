@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const Update = () => {
+  const [data, setData] = useState();
   const [userInput, setUserInput] = useState({
     firstname: "",
     lastname: "",
@@ -11,6 +12,13 @@ const Update = () => {
     password: "",
   });
   const paramData = useParams();
+
+  useEffect(() => {
+    fetch("http://65.0.93.119:4000/fetchusers")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
+  console.log(data);
 
   const handleAddData = () => {
     fetch(`http://65.0.93.119:4000/update/${paramData.id}`, {
@@ -28,7 +36,7 @@ const Update = () => {
         console.error("Error:", error);
       });
   };
-  console.log(userInput);
+  // console.log(userInput);
 
   const handelDelectData = () => {
     fetch(`http://65.0.93.119:4000/delete/${paramData.id}`, {
